@@ -36,7 +36,7 @@ export default function PostPage({post}){
        
             <h1 className="text-center pb-5" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h1>
             <span className='fs-3'>{ getDate(post.date) }</span>
-            <img className="img-fluid rounded" src={post['_embedded']['wp:featuredmedia'][0].media_details.sizes.large['source_url']} />
+            <img className="img-fluid rounded" alt={post.title.rendered} src={post['_embedded']['wp:featuredmedia'][0].media_details.sizes.large['source_url']} />
             <div className="card-text pb-5 mt-3" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
             <Link href="/">
                 <a className="btn btn-primary">Back to Home</a>
