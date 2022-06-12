@@ -33,7 +33,7 @@ export default function PostPage({post}){
 
         <div className="container pt-5 pb-5">
        
-            <h1 className="text-center pb-5">{post.title.rendered}</h1>
+            <h1 className="text-center pb-5" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h1>
             <img className="img-fluid rounded" src={post['_embedded']['wp:featuredmedia'][0].media_details.sizes.large['source_url']} />
             <div className="card-text pb-5 mt-3" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
             <Link href="/">
