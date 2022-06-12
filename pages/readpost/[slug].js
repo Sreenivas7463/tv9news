@@ -3,6 +3,7 @@ import parse from 'html-react-parser'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import {getDate} from "../../utils/utils";
 
 function Page({ data }) {
     // Render data...
@@ -34,7 +35,8 @@ function Page({ data }) {
         
         </Head>
         <div className="container my-4">
-         <h1>{data[0].title.rendered} <small className='fs-2'>{data[0].date}</small></h1>
+        <h1 className="text-center pb-5 text-secondary" dangerouslySetInnerHTML={{__html: data[0].title.rendered}}></h1>
+         <span className='fs-3'>{ getDate(data[0].date) }</span>
          <img className="img-fluid rounded my-2"
          src={data[0]['_embedded']['wp:featuredmedia'][0].media_details.sizes.large['source_url']}
          alt={data[0].title.rendered} />
