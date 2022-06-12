@@ -3,5 +3,9 @@ export function getDate(date){
         day: 'numeric',
         month: 'short',
         year: 'numeric',
+
+        hour: '2-digit', minute: 'numeric', second: 'numeric',
+        hour12: true,
+        timeZone: 'Asia/Kolkata'
       });
 }

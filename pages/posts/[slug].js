@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from "next/link"
 
 import {getPost, getSlugs} from "../../utils/wordpress";
+import {getDate} from "../../utils/utils";
 
 export default function PostPage({post}){
     return (
@@ -34,6 +35,7 @@ export default function PostPage({post}){
         <div className="container pt-5 pb-5">
        
             <h1 className="text-center pb-5" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h1>
+            <span className='fs-3'>{ getDate(post.date) }</span>
             <img className="img-fluid rounded" src={post['_embedded']['wp:featuredmedia'][0].media_details.sizes.large['source_url']} />
             <div className="card-text pb-5 mt-3" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
             <Link href="/">
